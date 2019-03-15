@@ -1,0 +1,21 @@
+plugins {
+	id "java"
+	id "org.springframework.boot" version "2.1.3.RELEASE"
+	id "io.spring.dependency-management" version "1.0.7.RELEASE"
+//	id "org.jetbrains.intellij" version "0.4.4"
+}
+
+group = 'au.com.voicestreams'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('io.micrometer:micrometer-registry-datadog')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
