@@ -27,5 +27,5 @@ management:
         api-key: ${DATADOG_API_KEY}
         application-key: ${DATADOG_APPLICATION_KEY}
         host-tag: ${spring.application.name}
-        step: 5s
+        step: 10s
         enabled: true
