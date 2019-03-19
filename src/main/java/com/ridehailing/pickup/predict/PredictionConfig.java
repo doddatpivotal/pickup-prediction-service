@@ -11,13 +11,15 @@ import org.springframework.context.annotation.Configuration;
 public class PredictionConfig {
 
     @Bean
-    public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(@Value("${DEPLOYMENT_TYPE:DONT_KNOW}")
-                                                                                        String deploymentType) {
-        return registry -> registry.config().commonTags("host", "voicestreams", "deployment", deploymentType);
+    public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(@Value("${DEPLOYMENT_TYPE:UNKNOWN}")
+                                                                                String deploymentType) {
+        // deploymentType comes from the Environment the app is running in
+        return registry -> registry.config().commonTags("deployment", deploymentType);
     }
 
     @Bean
     public TimedAspect timedAspect(MeterRegistry registry) {
         return new TimedAspect(registry);
     }
+
 }

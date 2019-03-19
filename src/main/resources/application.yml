@@ -1,10 +1,31 @@
-spring.application.name: borrowing-power-p  rediction-service
+#spring.application.name: borrowing-power-p  rediction-service
+#
+#management:
+#  metrics:
+#    export:
+#      datadog:
+#        api-key: ${DATADOG_API_KEY}
+#        application-key: ${DATADOG_APPLICATION_KEY}
+#        host-tag: ${spring.application.name}.voicestreams.com
+#        step: 5s
 
+
+spring.application.name: pickup-prediction-service
 management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
   metrics:
     export:
       datadog:
         api-key: ${DATADOG_API_KEY}
         application-key: ${DATADOG_APPLICATION_KEY}
-        host-tag: ${spring.application.name}.voicestreams.com
+        host-tag: ${spring.application.name}
         step: 5s
+        enabled: true

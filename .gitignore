@@ -3,6 +3,9 @@
 !gradle/wrapper/gradle-wrapper.jar
 .class
 
+##### Never push this one
+cloud-driver.yml
+
 ### STS ###
 .apt_generated
 .classpath

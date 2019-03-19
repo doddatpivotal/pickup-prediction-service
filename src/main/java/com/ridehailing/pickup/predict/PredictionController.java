@@ -1,24 +1,36 @@
 package com.ridehailing.pickup.predict;
 
+import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Timed
 public class PredictionController {
 
-  private final TimeToPickUpPredictor predictor;
+  private final TimeToPickUpPredictionService predictionService;
 
-  public PredictionController(TimeToPickUpPredictor calc) {
-    this.predictor = calc;
+  public PredictionController(TimeToPickUpPredictionService predictionService) {
+    this.predictionService = predictionService;
   }
 
   @GetMapping("/predict")
-  public TimeToPickUpPredictor.Borrow howMuch() {
-      System.out.println("predictor = " + predictor);
-      return predictor.predict();
+  public TimeToPickUp howLongToPickUp() {
+      System.out.println("predictionService called");
+      int seconds = predictionService.predict();
+      return new TimeToPickUp(seconds);
   }
 
 
+   static class TimeToPickUp {
+        private final int seconds;
 
+        public TimeToPickUp(int seconds) {
+            this.seconds = seconds;
+        }
 
+       public int getSeconds() {
+           return seconds;
+       }
+   }
 }
