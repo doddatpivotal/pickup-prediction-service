@@ -19,7 +19,7 @@ public class TimeToPickUpPredictionService {
     public int calculate() {
         try {
             int millis = randomGen.nextInt(300);
-            Thread.sleep(millis * 10);
+            Thread.sleep(millis * 2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
