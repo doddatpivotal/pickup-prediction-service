@@ -2,6 +2,7 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 .class
+*.json
 
 ##### Never push this one
 cloud-driver.yml
