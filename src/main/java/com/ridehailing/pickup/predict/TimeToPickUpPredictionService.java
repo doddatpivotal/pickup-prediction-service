@@ -10,7 +10,7 @@ import java.util.Random;
 @Timed
 public class TimeToPickUpPredictionService {
     private Random randomGen = new Random();
-    private int PREDICTION_TIME_MS = 600;
+    private int PREDICTION_TIME_MS = 250;
 
     @Timed("prediction.time")
     public int predict() {
