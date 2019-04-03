@@ -9,8 +9,9 @@ import java.util.Random;
 @Service
 @Timed
 public class TimeToPickUpPredictionService {
+
     private Random randomGen = new Random();
-    private int PREDICTION_TIME_MS = 200;
+    private int PREDICTION_TIME_MS = 600;
 
     @Timed("prediction.time")
     public int predict() {
