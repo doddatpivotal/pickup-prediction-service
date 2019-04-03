@@ -10,7 +10,7 @@ import java.util.Random;
 @Timed
 public class TimeToPickUpPredictionService {
     private Random randomGen = new Random();
-    private int PREDICTION_TIME_MS = 600;
+    private int PREDICTION_TIME_MS = 200;
 
     @Timed("prediction.time")
     public int predict() {
@@ -23,7 +23,6 @@ public class TimeToPickUpPredictionService {
             delayInMilliseconds = PREDICTION_TIME_MS + randomGen.nextInt(100);
             Thread.sleep(delayInMilliseconds);
         } catch (InterruptedException e) {
-            e.printStackTrace();
         }
         return delayInMilliseconds * 1000;
     }

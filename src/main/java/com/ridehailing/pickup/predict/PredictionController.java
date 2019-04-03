@@ -16,7 +16,6 @@ public class PredictionController {
 
   @GetMapping("/predict")
   public TimeToPickUp howLongToPickUp() {
-      System.out.println("predictionService called");
       int seconds = predictionService.predict();
       return new TimeToPickUp(seconds);
   }
