@@ -1,4 +1,4 @@
-package com.ridehailing.pickup.predict;
+package live.winterfell.pickupprediction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

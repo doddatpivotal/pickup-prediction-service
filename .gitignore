@@ -3,6 +3,8 @@
 !gradle/wrapper/gradle-wrapper.jar
 .class
 *.json
+.secrets
+.DS_Store
 
 ##### Never push this one
 cloud-driver.yml
@@ -22,6 +24,8 @@ cloud-driver.yml
 *.iml
 *.ipr
 /out/
+
+target
 
 ### NetBeans ###
 /nbproject/private/

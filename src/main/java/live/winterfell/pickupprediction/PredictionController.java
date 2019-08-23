@@ -1,4 +1,4 @@
-package com.ridehailing.pickup.predict;
+package live.winterfell.pickupprediction;
 
 import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.GetMapping;

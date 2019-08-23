@@ -1,4 +1,4 @@
-package com.ridehailing.pickup.predict;
+package live.winterfell.pickupprediction;
 
 import org.junit.Ignore;
 import org.junit.Test;

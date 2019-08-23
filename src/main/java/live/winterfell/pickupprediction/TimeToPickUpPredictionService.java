@@ -1,4 +1,4 @@
-package com.ridehailing.pickup.predict;
+package live.winterfell.pickupprediction;
 
 import io.micrometer.core.annotation.Timed;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class TimeToPickUpPredictionService {
     private Random randomGen = new Random();
     private int PREDICTION_TIME_MS = 250;
 
-    @Timed("prediction.time")
+    @Timed("live.winterfell.prediction.time")
     public int predict() {
         return runPredictionAlgorithm();
     }

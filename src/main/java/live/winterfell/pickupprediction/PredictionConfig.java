@@ -1,4 +1,4 @@
-package com.ridehailing.pickup.predict;
+package live.winterfell.pickupprediction;
 
 import io.micrometer.core.aop.TimedAspect;
 import io.micrometer.core.instrument.MeterRegistry;
