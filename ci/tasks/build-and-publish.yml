@@ -1,0 +1,25 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: cloudpipelines/pipeline-base
+    tag: latest
+
+params:
+  - REPO_WITH_BINARIES_FOR_UPLOAD:
+  - M2_SETTINGS_REPO_ID:
+  - M2_SETTINGS_REPO_USERNAME:
+  - M2_SETTINGS_REPO_PASSWORD:
+
+inputs:
+  - name: ci-scripts
+  - name: code-repo
+  - name: version
+
+outputs:
+  - name: results
+
+run:
+  path: ci-scripts/ci/tasks/build-and-publish.sh

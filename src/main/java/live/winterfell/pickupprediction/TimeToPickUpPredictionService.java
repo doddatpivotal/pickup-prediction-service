@@ -11,7 +11,7 @@ import java.util.Random;
 public class TimeToPickUpPredictionService {
 
     private Random randomGen = new Random();
-    private int PREDICTION_TIME_MS = 250;
+    private int PREDICTION_TIME_MS = 251;
 
     @Timed("live.winterfell.prediction.time")
     public int predict() {

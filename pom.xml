@@ -5,7 +5,7 @@
 
     <groupId>live.winterfell</groupId>
     <artifactId>pickup-prediction-service</artifactId>
-    <version>1.0.0-rc1</version>
+    <version>1.0.0-rc5</version>
     <packaging>jar</packaging>
 
     <name>pickup-prediction-service</name>

@@ -5,6 +5,7 @@
 *.json
 .secrets
 .DS_Store
+.secrets.yml
 
 ##### Never push this one
 cloud-driver.yml
