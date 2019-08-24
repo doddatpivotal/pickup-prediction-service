@@ -34,12 +34,6 @@ export BUILD_PIPELINE_NAME=`cat ${ROOT_FOLDER}/meta/build-pipeline-name`
 export BUILD_JOB_NAME=`cat ${ROOT_FOLDER}/meta/build-job-name`
 export ATC_EXTERNAL_URL=`cat ${ROOT_FOLDER}/meta/atc-external-url`
 export BUILD_URI=${ATC_EXTERNAL_URL}/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_PIPELINE_NAME}/build/${BUILD_NAME}
-echo "CODE_CONTEXT_URL: ${REPO_CONTEXT_URL}"
-echo "BUILD_ID: ${BUILD_ID}"
-echo "BUILD_NAME: ${BUILD_NAME}"
-echo "BUILD_TEAM_NAME: ${BUILD_TEAM_NAME}"
-echo "BUILD_PIPELINE_NAME: ${BUILD_PIPELINE_NAME}"
-echo "BUILD_URI: ${BUILD_URI}"
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
