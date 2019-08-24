@@ -64,13 +64,6 @@
         </dependencies>
     </dependencyManagement>
 
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>${distribution.management.release.id}</id>-->
-<!--            <url>${distribution.management.release.url}</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
-
     <pluginRepositories>
         <pluginRepository>
             <id>spring-plugins-repository</id>
