@@ -7,8 +7,6 @@ echo "Build version: ${version}"
 
 ./ci-scripts/ci/tasks/create-maven-settings-xml.sh
 
-cd code-repo
-
 export ROOT_FOLDER=$( pwd )
 export BUILD_ID=`cat ${ROOT_FOLDER}/meta/build-id`
 export BUILD_NAME=`cat ${ROOT_FOLDER}/meta/build-name`
@@ -17,6 +15,8 @@ export BUILD_PIPELINE_NAME=`cat ${ROOT_FOLDER}/meta/build-pipeline-name`
 export BUILD_JOB_NAME=`cat ${ROOT_FOLDER}/meta/build-job-name`
 export ATC_EXTERNAL_URL=`cat ${ROOT_FOLDER}/meta/atc-external-url`
 export BUILD_URI=${ATC_EXTERNAL_URL}/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_PIPELINE_NAME}/build/${BUILD_NAME}
+
+cd code-repo
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
