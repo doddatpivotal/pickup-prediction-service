@@ -77,11 +77,13 @@ jobs:
           repository: code-repo
           tag: results/tag.txt
           only_tag: true
-      - put: artifactory
+      - put: artifacts
         params:
           repo: libs-snapshot-local
           build_number: "example-${BUILD_ID}"
           folder: results
+          exclude:
+            - "/**/*.txt"
           build_uri: "https://ci.lab.winterfell.live/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}"
 
   - name: trigger-spinnaker
