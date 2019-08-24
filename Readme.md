@@ -1,7 +1,4 @@
-kubectl -n default run injector 
-    --image=alpine:3.10 \
-    --generator=run-pod/v1 \ 
-    -- \
+kubectl -n default run injector --image=alpine:3.10 --generator=run-pod/v1  -- \
         /bin/sh -c "apk add --no-cache curl; \
         while true; do curl -sS --max-time 3 \
         https://pickup-prediction.cfapps.io/predict; done"
