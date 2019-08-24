@@ -29,7 +29,7 @@ cd code-repo
 echo "CODE_CONTEXT_URL: ${REPO_CONTEXT_URL}"
 echo "M2_SETTINGS_REPO_USERNAME: ${M2_SETTINGS_REPO_USERNAME}"
 echo "M2_SETTINGS_REPO_PASSWORD: ${M2_SETTINGS_REPO_PASSWORD}"
-
+echo "BUILD_URI: ${BUILD_URI}"
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
