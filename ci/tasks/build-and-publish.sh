@@ -9,6 +9,7 @@ echo "Build version: ${version}"
 
 cd code-repo
 
+export ROOT_FOLDER=$( pwd )
 export BUILD_ID=`cat ${ROOT_FOLDER}/meta/build-id`
 export BUILD_NAME=`cat ${ROOT_FOLDER}/meta/build-name`
 export BUILD_TEAM_NAME=`cat ${ROOT_FOLDER}/meta/build-team-name`
