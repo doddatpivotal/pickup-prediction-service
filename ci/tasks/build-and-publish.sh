@@ -28,10 +28,23 @@ echo "Settings xml written"
 cd code-repo
 
 echo "CODE_CONTEXT_URL: ${REPO_CONTEXT_URL}"
+#export BUILD_ID=${version}
+#
+#pipeline_id=`cat "${ROOT_FOLDER}/meta/build-name"`
+#echo "Pipeline id is $pipeline_id"
+#export "PASSED_PIPELINE_ID=$pipeline_id"
+
+#"$BUILD_ID" > build-id
+#"$BUILD_NAME" > build-name
+#"$BUILD_JOB_NAME" > build-job-name
+#"$BUILD_PIPELINE_NAME" > build-pipeline-name
+#"$BUILD_TEAM_NAME" > build-team-name
+#"$ATC_EXTERNAL_URL" > atc-external-url
+
+
+export BUILD_ID=`cat ${ROOT_FOLDER}/meta/build-id`
 echo "BUILD_URI: ${BUILD_URI}"
-echo "BUILD_ID: ${BUILD_ID}"
-export BUILD_ID=${version}
-env
+cat ${ROOT_FOLDER}/meta/atc-external-url
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
