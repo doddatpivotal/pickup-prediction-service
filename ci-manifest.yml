@@ -3,6 +3,6 @@ applications:
   - name: pickup-prediction-service
     memory: 1G
     path: target/pickup-prediction-service-1.0.0-rc1.jar
-    buildpack: java_buildpack_offline
+    buildpack: java_buildpack
     routes:
       - route: sampleroute
