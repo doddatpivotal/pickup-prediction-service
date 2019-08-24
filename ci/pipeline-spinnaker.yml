@@ -83,7 +83,8 @@ jobs:
           build_number: "example-${BUILD_ID}"
           folder: results/repository
           include:
-            - "/io/pivotal/pickup-prediction-service/*"
+            - "/io/pivotal/pickup-prediction-service/**/*.jar"
+            - "/io/pivotal/pickup-prediction-service/**/*.pom"
           build_uri: "https://ci.lab.winterfell.live/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}"
 
   - name: trigger-spinnaker

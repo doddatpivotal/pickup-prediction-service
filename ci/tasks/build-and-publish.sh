@@ -38,7 +38,9 @@ echo "Settings xml written"
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
-./mvnw versions:set -DnewVersion=${version}
+./mvnw versions:set
+    -DnewVersion=${version}\
+    --settings settings.xml\
 ./mvnw package \
     -DskipTests \
     -Ddistribution.management.release.id="${M2_SETTINGS_REPO_ID}" \
