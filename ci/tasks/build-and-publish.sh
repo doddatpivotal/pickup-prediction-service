@@ -41,7 +41,7 @@ echo "Running mvn deploy command"
 ./mvnw versions:set \
     -DnewVersion=${version} \
     --settings settings.xml
-./mvnw package \
+./mvnw install \
     -DskipTests \
     -Ddistribution.management.release.id="${M2_SETTINGS_REPO_ID}" \
     -Ddistribution.management.release.url="${REPO_WITH_BINARIES_FOR_UPLOAD}" \
