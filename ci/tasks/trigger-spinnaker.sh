@@ -17,5 +17,7 @@ curl -X POST \
 }
 ' -k
 
+cd deployment
+
 # Create github tag file to be used in later put step
 echo "${version}-spinnaker-trigger-$(date +%Y%m%d_%H%M%S)" > tag.txt

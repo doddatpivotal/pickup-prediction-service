@@ -17,5 +17,9 @@ inputs:
   - name: ci-scripts
   - name: version
 
+outputs:
+  - name: deployment
+
+
 run:
   path: ci-scripts/ci/tasks/trigger-spinnaker.sh
