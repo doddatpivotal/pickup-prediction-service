@@ -28,23 +28,16 @@ echo "Settings xml written"
 cd code-repo
 
 echo "CODE_CONTEXT_URL: ${REPO_CONTEXT_URL}"
-#export BUILD_ID=${version}
-#
-#pipeline_id=`cat "${ROOT_FOLDER}/meta/build-name"`
-#echo "Pipeline id is $pipeline_id"
-#export "PASSED_PIPELINE_ID=$pipeline_id"
-
-#"$BUILD_ID" > build-id
-#"$BUILD_NAME" > build-name
-#"$BUILD_JOB_NAME" > build-job-name
-#"$BUILD_PIPELINE_NAME" > build-pipeline-name
-#"$BUILD_TEAM_NAME" > build-team-name
-#"$ATC_EXTERNAL_URL" > atc-external-url
-
 
 export BUILD_ID=`cat ${ROOT_FOLDER}/meta/build-id`
+export BUILD_TEAM_NAME=`cat ${ROOT_FOLDER}/meta/build-team-name`
+export BUILD_PIPELINE_NAME=`cat ${ROOT_FOLDER}/meta/build-pipeline-name`
+export BUILD_URI=${ATC_EXTERNAL_URL}/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}
+
+echo "BUILD_ID: ${BUILD_ID}"
+echo "BUILD_TEAM_NAME: ${BUILD_TEAM_NAME}"
+echo "BUILD_PIPELINE_NAME: ${BUILD_PIPELINE_NAME}"
 echo "BUILD_URI: ${BUILD_URI}"
-cat ${ROOT_FOLDER}/meta/atc-external-url
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
@@ -57,6 +50,3 @@ echo "Running mvn deploy command"
 
 # Create file with tag name to be used in later put step
 echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt
-
-#mkdir ../results/repository
-#cp -a ${M2_HOME}/repository/. ../results/repository
