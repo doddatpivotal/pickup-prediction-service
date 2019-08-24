@@ -1,37 +1,5 @@
-.gradle
-/build/
-!gradle/wrapper/gradle-wrapper.jar
-.class
-*.json
-.secrets
-.DS_Store
-.secrets.yml
-
-##### Never push this one
-cloud-driver.yml
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-/out/
-
-target
-
-### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+#  ignore everything except files explicitly listed
+*
+!version
+!README.md
+!.gitignore
