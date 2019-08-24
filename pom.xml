@@ -5,7 +5,7 @@
 
     <groupId>live.winterfell</groupId>
     <artifactId>pickup-prediction-service</artifactId>
-    <version>1.0.0-rc5</version>
+    <version>1.0.0-rc7</version>
     <packaging>jar</packaging>
 
     <name>pickup-prediction-service</name>
@@ -64,12 +64,12 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>${distribution.management.release.id}</id>
-            <url>${distribution.management.release.url}</url>
-        </repository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>${distribution.management.release.id}</id>-->
+<!--            <url>${distribution.management.release.url}</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 
     <build>
         <plugins>
@@ -85,7 +85,36 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jfrog.buildinfo</groupId>
+                <artifactId>artifactory-maven-plugin</artifactId>
+                <version>2.6.1</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                        <configuration>
+                            <publisher>
+                                <contextUrl>{{REPO_CONTEXT_URL}}</contextUrl>
+                                <username>{{M2_SETTINGS_REPO_USER_NAME}}</username>
+                                <password>{{M2_SETTINGS_REPO_PASSWORD}}</password>
+                                <repoKey>libs-release-local</repoKey>
+                                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                            </publisher>
+                            <buildInfo>
+                                <buildNumber>{{BUILD_ID}}</buildNumber>
+                                <buildUri>{{BUILD_URI}}</buildUri>
+
+                            </buildInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
     </build>
 
 

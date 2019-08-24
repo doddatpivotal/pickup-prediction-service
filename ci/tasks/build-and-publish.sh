@@ -30,6 +30,46 @@ cat > "settings.xml" <<EOF
 			<password>\${M2_SETTINGS_REPO_PASSWORD}</password>
 		</server>
 	</servers>
+    <profiles>
+      <profile>
+        <repositories>
+          <repository>
+            <snapshots>
+              <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-release</url>
+          </repository>
+          <repository>
+            <snapshots />
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-snapshot</url>
+          </repository>
+        </repositories>
+        <pluginRepositories>
+          <pluginRepository>
+            <snapshots>
+              <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>libs-release</name>
+            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-release</url>
+          </pluginRepository>
+          <pluginRepository>
+            <snapshots />
+            <id>snapshots</id>
+            <name>libs-snapshot</name>
+            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-snapshot</url>
+          </pluginRepository>
+        </pluginRepositories>
+        <id>artifactory</id>
+      </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>artifactory</activeProfile>
+    </activeProfiles>
 </settings>
 
 
@@ -39,16 +79,12 @@ echo "Settings xml written"
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
 ./mvnw versions:set \
-    -DnewVersion=${version} \
-    --settings settings.xml
-./mvnw install \
-    -DskipTests \
-    -Ddistribution.management.release.id="${M2_SETTINGS_REPO_ID}" \
-    -Ddistribution.management.release.url="${REPO_WITH_BINARIES_FOR_UPLOAD}" \
-    --settings settings.xml
+    -DnewVersion=${version}
+./mvnw deploy \
+    -DskipTests
 
 # Create file with tag name to be used in later put step
 echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt
 
-mkdir ../results/repository
-cp -a ${M2_HOME}/repository/. ../results/repository
+#mkdir ../results/repository
+#cp -a ${M2_HOME}/repository/. ../results/repository
