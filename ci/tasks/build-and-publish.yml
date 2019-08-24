@@ -17,6 +17,7 @@ inputs:
   - name: ci-scripts
   - name: code-repo
   - name: version
+  - name: meta
 
 outputs:
   - name: results
