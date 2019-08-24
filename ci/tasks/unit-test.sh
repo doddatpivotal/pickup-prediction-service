@@ -2,7 +2,7 @@
 
 set -ex
 
-./create-maven-settings-xml.sh
+./ci-scripts/ci/tasks/create-maven-settings-xml.sh
 
 
 #M2_HOME=${HOME}/.m2
