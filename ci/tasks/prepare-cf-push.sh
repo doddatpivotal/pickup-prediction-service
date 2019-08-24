@@ -1,5 +1,5 @@
 #!/bin/bash
-# requires bash avoce for the variable substitution used below
+# requires bash above for the variable substitution used below
 
 set -ex
 

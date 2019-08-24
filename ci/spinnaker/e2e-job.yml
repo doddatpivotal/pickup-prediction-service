@@ -15,7 +15,7 @@ spec:
               git clone http://github.com/doddatpivotal/pickup-prediction-service.git code-repo;
               cd code-repo;
               git checkout ${parameters.tag};
-              APPLICATION_URL="https://pickup-prediction.cfapps.io" MANAGEMENT_METRICS_EXPORT_DATADOG_ENABLED=false ./mvnw clean verify -Pe2e
+              APPLICATION_URL="https://test-pickup-prediction.cfapps.io" ./mvnw clean verify -Pe2e
           command:
             - /bin/sh
             - '-c'
