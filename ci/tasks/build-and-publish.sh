@@ -35,10 +35,10 @@ env
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
-mvn versions:set \
+./mvnw versions:set \
     -DnewVersion=${version} \
     -s ${M2_HOME}/settings.xml
-mvn deploy \
+./mvnw deploy \
     -DskipTests \
     -s ${M2_HOME}/settings.xml
 
