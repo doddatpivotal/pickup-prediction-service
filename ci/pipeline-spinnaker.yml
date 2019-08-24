@@ -81,9 +81,9 @@ jobs:
         params:
           repo: libs-snapshot-local
           build_number: "example-${BUILD_ID}"
-          folder: results
-          exclude:
-            - "/**/*.txt"
+          folder: results/repository
+          include:
+            - "/io/pivotal/pickup-prediction-service/*"
           build_uri: "https://ci.lab.winterfell.live/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}"
 
   - name: trigger-spinnaker

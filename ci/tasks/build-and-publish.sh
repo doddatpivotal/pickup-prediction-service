@@ -17,7 +17,6 @@ export MAVEN_USER_HOME=${M2_HOME}
 
 mkdir -p "${M2_HOME}/repository"
 
-
 # Create custom settings.xml file with credentials required to publish to remote maven repi
 cat > "settings.xml" <<EOF
 
@@ -49,4 +48,5 @@ echo "Running mvn deploy command"
 # Create file with tag name to be used in later put step
 echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt
 
-cp -a target/. ../results/
+mkdir ../results/repository
+cp -a ${M2_HOME}/repository/. ../results/repository
