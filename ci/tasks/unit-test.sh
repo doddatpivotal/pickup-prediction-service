@@ -20,5 +20,9 @@ cat > ${M2_HOME}/settings.xml <<EOF
 
 EOF
 
+echo "BUILD_ID: ${BUILD_ID}"
+env
+
+
 cd code-repo
-./mvnw clean test
+mvn clean test
