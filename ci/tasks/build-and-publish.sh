@@ -26,7 +26,7 @@ echo "Settings xml written"
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
 ./mvnw versions:set -DnewVersion=${version}
-./mvnw deploy \
+./mvnw package \
     -DskipTests \
     -Ddistribution.management.release.id="${M2_SETTINGS_REPO_ID}" \
     -Ddistribution.management.release.url="${REPO_WITH_BINARIES_FOR_UPLOAD}" \
@@ -34,3 +34,5 @@ echo "Running mvn deploy command"
 
 # Create file with tag name to be used in later put step
 echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt
+
+cp -a target/. ../results/

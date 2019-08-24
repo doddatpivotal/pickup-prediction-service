@@ -1,5 +1,20 @@
 ---
+resource_types:
+  - name: artifactory-resource
+    type: docker-image
+    source:
+      repository: springio/artifactory-resource
+      tag: 0.0.10
+
 resources:
+  - name: artifacts
+    type: artifactory-resource
+    source:
+      uri: http://artifactory.kingslanding.pks.lab.winterfell.live/artifactory
+      username: admin
+      password: KeepItSimple1!
+      build_name: pickup-prediction-service-ci
+
   - name: code-repo
     type: git
     source:
@@ -62,6 +77,12 @@ jobs:
           repository: code-repo
           tag: results/tag.txt
           only_tag: true
+      - put: artifactory
+        params:
+          repo: libs-snapshot-local
+          build_number: "example-${BUILD_ID}"
+          folder: results
+          build_uri: "https://ci.lab.winterfell.live/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}"
 
   - name: trigger-spinnaker
     serial: true
