@@ -10,12 +10,12 @@ curl -X POST \
   -d '{
 	"artifacts": [
 		{
-        "reference": "${GROUP_ID}:${ARTIFACT_ID}:${version}",
+        "reference": "'${GROUP_ID}':'${ARTIFACT_ID}':'${version}'",
         "type": "maven/file"
         }
 	]
 }
-' -k
+' -kg
 
 cd deployment
 
