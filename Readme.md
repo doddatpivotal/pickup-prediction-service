@@ -37,6 +37,14 @@ fly -t lab set-pipeline  -p pickup-prediction-service-spinnaker \
     --non-interactive
  
 fly -t lab unpause-pipeline -p pickup-prediction-service-spinnaker
+
+fly -t lab set-pipeline  -p pickup-prediction-service-concourse \
+    --config ci/pipeline.yml \
+    --load-vars-from ci/.secrets.yml \
+    --non-interactive
+
+fly -t lab unpause-pipeline -p pickup-prediction-service-concourse
+
 ```
 
 ## Run e2e tests
