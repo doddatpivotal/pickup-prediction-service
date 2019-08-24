@@ -15,6 +15,6 @@ fly -t lab set-pipeline  -p pickup-prediction-service-spinnaker \
     --config ci/pipeline-spinnaker.yml \
     --load-vars-from ci/.secrets.yml \
     --non-interactive
-
+ 
 fly -t lab unpause-pipeline -p pickup-prediction-service-spinnaker
 ```
