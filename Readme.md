@@ -15,3 +15,9 @@ fly -t lab set-pipeline  -p pickup-prediction-service-spinnaker \
  
 fly -t lab unpause-pipeline -p pickup-prediction-service-spinnaker
 ```
+
+## Run e2e tests
+
+```bash
+APPLICATION_URL="https://pickup-prediction.cfapps.io" MANAGEMENT_METRICS_EXPORT_DATADOG_ENABLED=false mvn clean verify -Pe2e
+```

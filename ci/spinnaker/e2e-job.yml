@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    spinnaker-job: e2e-test
+  name: e2e-test
+spec:
+  template:
+    spec:
+      containers:
+        - args:
+            - >-
+              set -ex;
+              git clone https://github.com/doddatpivotal/pickup-prediction-service.git  code-repo;
+              cd code-repo;
+              APPLICATION_URL="https://pickup-prediction.cfapps.io" MANAGEMENT_METRICS_EXPORT_DATADOG_ENABLED=false ./mvnw clean verify -Pe2e
+          command:
+            - /bin/sh
+            - '-c'
+          image: cloudpipelines/pipeline-base
+          name: mvn-job
+      restartPolicy: Never
+  backoffLimit: 1
