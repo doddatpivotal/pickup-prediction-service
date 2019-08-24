@@ -36,9 +36,11 @@ env
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"
 mvn versions:set \
-    -DnewVersion=${version}
+    -DnewVersion=${version} \
+    -s ${M2_HOME}/settings.xml
 mvn deploy \
-    -DskipTests
+    -DskipTests \
+    -s ${M2_HOME}/settings.xml
 
 # Create file with tag name to be used in later put step
 echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt

@@ -25,4 +25,4 @@ env
 
 
 cd code-repo
-mvn clean test
+mvn clean test -s ${M2_HOME}/settings.xml
