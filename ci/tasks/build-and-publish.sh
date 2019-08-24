@@ -31,6 +31,7 @@ echo "M2_SETTINGS_REPO_USERNAME: ${M2_SETTINGS_REPO_USERNAME}"
 echo "M2_SETTINGS_REPO_PASSWORD: ${M2_SETTINGS_REPO_PASSWORD}"
 echo "BUILD_URI: ${BUILD_URI}"
 echo "BUILD_ID: ${BUILD_ID}"
+export BUILD_ID=${version}
 env
 
 # Update version and deploy to remote maven repository

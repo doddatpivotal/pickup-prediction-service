@@ -20,6 +20,8 @@ cat > ${M2_HOME}/settings.xml <<EOF
 
 EOF
 
+cat ${M2_HOME}/settings.xml
+
 echo "BUILD_ID: ${BUILD_ID}"
 env
 
