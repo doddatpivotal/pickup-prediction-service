@@ -63,6 +63,28 @@ jobs:
           tag: results/tag.txt
           only_tag: true
 
+  - name: trigger-spinnaker
+    serial: true
+    plan:
+      - get: code-repo
+        trigger: true
+        passed: [ build-and-publish ]
+      - get: ci-scripts
+      - get: version
+      - task: trigger-spinnaker
+        file: ci-scripts/ci/tasks/trigger-spinnaker.yml
+        params:
+          GROUP_ID: ((code-repo-group-id))
+          ARTIFACT_ID: ((code-repo-artifact-id))
+          SPINNKER_API: ((spinnaker-api))
+          WEBHOOK_SOURCE: ((webhook-source))
+      - put: code-repo-tag
+        resource: code-repo
+        params:
+          repository: code-repo
+          tag: deployment/tag.txt
+          only_tag: true
+
   - name: bump-major-version
     serial: true
     plan:

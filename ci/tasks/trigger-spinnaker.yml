@@ -1,0 +1,21 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: cloudpipelines/pipeline-base
+    tag: latest
+
+params:
+  - SPINNKER_API:
+  - WEBHOOK_SOURCE:
+  - GROUP_ID:
+  - ARTIFACT_ID:
+
+inputs:
+  - name: ci-scripts
+  - name: version
+
+run:
+  path: ci-scripts/ci/tasks/trigger-spinnaker.sh
