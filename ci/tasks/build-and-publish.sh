@@ -5,78 +5,31 @@ set -e
 export version=`cat version/version`
 echo "Build version: ${version}"
 
-cd code-repo
-
-
 M2_HOME=${HOME}/.m2
-
 mkdir -p ${M2_HOME}
 
-echo "M2 Local Repo: ${M2_HOME}"
+M2_LOCAL_REPO="${ROOT_FOLDER}/.m2"
 
-# For Maven Wrapper
-export MAVEN_USER_HOME=${M2_HOME}
+mkdir -p "${M2_LOCAL_REPO}/repository"
 
-mkdir -p "${M2_HOME}/repository"
+cat > ${M2_HOME}/settings.xml <<EOF
 
-# Create custom settings.xml file with credentials required to publish to remote maven repi
-cat > "settings.xml" <<EOF
-
-<?xml version="1.0" encoding="UTF-8"?>
-<settings>
-    <localRepository>${M2_HOME}/repository</localRepository>
-	<servers>
-		<server>
-			<id>\${M2_SETTINGS_REPO_ID}</id>
-			<username>\${M2_SETTINGS_REPO_USERNAME}</username>
-			<password>\${M2_SETTINGS_REPO_PASSWORD}</password>
-		</server>
-	</servers>
-    <profiles>
-      <profile>
-        <repositories>
-          <repository>
-            <snapshots>
-              <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>libs-release</name>
-            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-release</url>
-          </repository>
-          <repository>
-            <snapshots />
-            <id>snapshots</id>
-            <name>libs-snapshot</name>
-            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-snapshot</url>
-          </repository>
-        </repositories>
-        <pluginRepositories>
-          <pluginRepository>
-            <snapshots>
-              <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>libs-release</name>
-            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-release</url>
-          </pluginRepository>
-          <pluginRepository>
-            <snapshots />
-            <id>snapshots</id>
-            <name>libs-snapshot</name>
-            <url>http://artifactory.kingslanding.pks.lab.winterfell.live:80/artifactory/libs-snapshot</url>
-          </pluginRepository>
-        </pluginRepositories>
-        <id>artifactory</id>
-      </profile>
-    </profiles>
-    <activeProfiles>
-        <activeProfile>artifactory</activeProfile>
-    </activeProfiles>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+      <localRepository>${M2_LOCAL_REPO}/repository</localRepository>
 </settings>
-
 
 EOF
 echo "Settings xml written"
+
+cd code-repo
+
+echo "CODE_CONTEXT_URL: ${REPO_CONTEXT_URL}"
+echo "M2_SETTINGS_REPO_USER_NAME: ${M2_SETTINGS_REPO_USER_NAME}"
+echo "M2_SETTINGS_REPO_PASSWORD: ${M2_SETTINGS_REPO_PASSWORD}"
+
 
 # Update version and deploy to remote maven repository
 echo "Running mvn deploy command"

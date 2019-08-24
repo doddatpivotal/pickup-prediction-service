@@ -21,5 +21,8 @@ inputs:
 outputs:
   - name: results
 
+caches:
+  - path: .m2/
+
 run:
   path: ci-scripts/ci/tasks/build-and-publish.sh
