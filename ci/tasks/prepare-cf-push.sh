@@ -1,6 +1,8 @@
 #!/bin/bash
 # requires bash avoce for the variable substitution used below
 
+set -e
+
 version=`cat version/version`
 artifactName="${ARTIFACT_ID}-${version}.jar"
 

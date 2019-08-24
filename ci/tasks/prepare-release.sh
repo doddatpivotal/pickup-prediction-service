@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -e
+
+
 export version=`cat version/version`
 echo "Build version: ${version}"
 
