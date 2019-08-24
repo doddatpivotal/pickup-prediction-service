@@ -10,14 +10,12 @@ M2_HOME=${HOME}/.m2
 
 mkdir -p ${M2_HOME}
 
-M2_LOCAL_REPO="${ROOT_FOLDER}/.m2"
-
-echo "M2 Local Repo: ${M2_LOCAL_REPO}"
+echo "M2 Local Repo: ${M2_HOME}"
 
 # For Maven Wrapper
-export MAVEN_USER_HOME=${M2_LOCAL_REPO}
+export MAVEN_USER_HOME=${M2_HOME}
 
-mkdir -p "${M2_LOCAL_REPO}/repository"
+mkdir -p "${M2_HOME}/repository"
 
 
 # Create custom settings.xml file with credentials required to publish to remote maven repi
@@ -25,7 +23,7 @@ cat > "settings.xml" <<EOF
 
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
-    <localRepository>${M2_LOCAL_REPO}/repository</localRepository>
+    <localRepository>${M2_HOME}/repository</localRepository>
 	<servers>
 		<server>
 			<id>\${M2_SETTINGS_REPO_ID}</id>
