@@ -28,4 +28,4 @@ echo "Running mvn deploy command"
     -s ${HOME}/.m2/settings.xml
 
 # Create file with tag name to be used in later put step
-echo "version-${version}-artifactory-deploy-$(date +%Y%m%d_%H%M%S)" > ../results/tag.txt
+echo "version-${version}-artifactory-deploy" > ../results/tag.txt

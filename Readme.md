@@ -21,3 +21,8 @@ fly -t lab unpause-pipeline -p pickup-prediction-service-spinnaker
 ```bash
 APPLICATION_URL="https://pickup-prediction.cfapps.io" MANAGEMENT_METRICS_EXPORT_DATADOG_ENABLED=false mvn clean verify -Pe2e
 ```
+
+## Spinnaker Run Job (Manifest)
+
+gitrepo=http://github.com/doddatpivotal/pickup-prediction-service.git
+tag=0.1.4-rc.31-spinnaker-trigger-20190824_170418 

@@ -15,7 +15,10 @@ curl -X POST \
         "reference": "'${GROUP_ID}':'${ARTIFACT_ID}':'${version}'",
         "type": "maven/file"
         }
-	]
+	],
+    "parameters": {
+        "tag": "version-'${version}'-artifactory-deploy"
+      }
 }
 ' -k
 

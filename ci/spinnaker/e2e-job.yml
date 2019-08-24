@@ -5,14 +5,16 @@ metadata:
     spinnaker-job: e2e-test
   name: e2e-test
 spec:
+  ttlSecondsAfterFinished: 100
   template:
     spec:
       containers:
         - args:
             - >-
               set -ex;
-              git clone https://github.com/doddatpivotal/pickup-prediction-service.git  code-repo;
+              git clone http://github.com/doddatpivotal/pickup-prediction-service.git code-repo;
               cd code-repo;
+              git checkout ${parameters.tag}
               APPLICATION_URL="https://pickup-prediction.cfapps.io" MANAGEMENT_METRICS_EXPORT_DATADOG_ENABLED=false ./mvnw clean verify -Pe2e
           command:
             - /bin/sh
