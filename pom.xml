@@ -71,6 +71,13 @@
 <!--        </repository>-->
 <!--    </distributionManagement>-->
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-plugins-repository</id>
+            <url>https://repo.spring.io/plugins-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
             <!-- Maven plugin that can package the project as an executable jar  -->
