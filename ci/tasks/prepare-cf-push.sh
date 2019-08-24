@@ -8,7 +8,6 @@ artifactName="${ARTIFACT_ID}-${version}.jar"
 
 
 cd code-repo
-git checkout ${version}
 cp ci-manifest.yml ../deployment/manifest.yml
 cd ..
 
