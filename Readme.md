@@ -3,7 +3,17 @@
 This demo application works through a CI/CD pipeline exclusively with Concourse.  An then
 follows up with a CI pipeline with concourse and CD pipeline with Spinnaker.
 
-## Generate load on the production service
+*CI/CD Pipeline with Concourse Only*
+
+![CI/CD Pipeline with Concourse](docs/concourse-cicd-pipeline.png)
+
+*CI/CD Pipeline with Concourse and Spinnaker*
+
+![CI Pipeline with Concourse](docs/concourse-ci-pipeline.png)
+
+![CD Pipeline with Concourse](docs/spinnaker-cd-pipeline.png)
+
+## Generate load on the production Spinnaker deployed service
 ```bash
 kubectl -n default run injector --image=alpine:3.10 --generator=run-pod/v1  -- \
     /bin/sh -c "apk add --no-cache curl; \
