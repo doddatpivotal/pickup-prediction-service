@@ -3,11 +3,11 @@
 This demo application works through a CI/CD pipeline exclusively with Concourse.  An then
 follows up with a CI pipeline with concourse and CD pipeline with Spinnaker.
 
-*CI/CD Pipeline with Concourse Only*
+**CI/CD Pipeline with Concourse Only**
 
 ![CI/CD Pipeline with Concourse](docs/concourse-cicd-pipeline.png)
 
-*CI/CD Pipeline with Concourse and Spinnaker*
+**CI/CD Pipeline with Concourse and Spinnaker**
 
 ![CI Pipeline with Concourse](docs/concourse-ci-pipeline.png)
 
