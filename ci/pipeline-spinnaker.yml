@@ -70,15 +70,6 @@ jobs:
           repository: code-repo
           tag: results/tag.txt
           only_tag: true
-#      - put: artifacts
-#        params:
-#          repo: libs-snapshot-local
-#          build_number: "${BUILD_ID}"
-#          folder: results/repository
-#          include:
-#            - "/live/winterfell/pickup-prediction-service/**/*.jar"
-#            - "/live/winterfell/pickup-prediction-service/**/*.pom"
-#          build_uri: "https://ci.lab.winterfell.live/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}"
 
   - name: trigger-spinnaker
     serial: true
