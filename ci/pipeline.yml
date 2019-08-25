@@ -113,6 +113,7 @@ jobs:
           ROUTE: ((cf-test-route))
           ARTIFACTORY_URL: ((repo-context-url))/((artifactory-repo))
           DEPLOY_TARGET_LABEL: test
+          APP_NAME: ((cf-test-app-name))
       - put: cf-test
         params:
           manifest: deployment/manifest.yml
@@ -177,6 +178,7 @@ jobs:
           ROUTE: ((cf-prod-route))
           ARTIFACTORY_URL: ((repo-context-url))/((artifactory-repo))
           DEPLOY_TARGET_LABEL: prod
+          APP_NAME: ((cf-prod-app-name))
       - put: cf-prod
         params:
           manifest: deployment/manifest.yml

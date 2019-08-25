@@ -24,6 +24,8 @@ echo "Downloading full artifact uri: ${ARTIFACT_FULL_URI}"
 wget "${ARTIFACT_FULL_URI}"
 
 # Update the path and route for versioned jar and requested cf route
+#- name: pickup-prediction-service
+sed -i -- "s|- name: .*$|- name: ${APP_NAME}|g" manifest.yml
 sed -i -- "s|path: .*$|path: $artifactName|g" manifest.yml
 sed -i -- "s|- route: sampleroute|- route: ${ROUTE}|g" manifest.yml
 
