@@ -57,6 +57,44 @@ fly -t lab unpause-pipeline -p pickup-prediction-service-concourse
 
 ```
 
+### Example .secrets.yml file
+
+```yaml
+m2-settings-repo-username: username
+m2-settings-repo-password: SuperSecretPassword
+repo-context-url: http://artifactory.kingslanding.pks.lab.winterfell.live/artifactory
+artifactory-repo: libs-release-local
+code-repo-uri: git@github.com:doddatpivotal/todos-webflux.git
+code-repo-branch: master
+code-repo-group-id: io.todos
+code-repo-artifact-id: todos-webflux
+code-repo-owner: doddatpivotal
+code-repo-repository: todos-webflux
+code-repo-access-token: SuperSecretAccessToken
+version-repo-uri: git@github.com:doddatpivotal/todos-webflux.git
+version-repo-branch: version
+code-repo-private-key: |
+  -----BEGIN OPENSSH PRIVATE KEY----- fake
+  fake TEST-KEY-CONTENTS fake
+  -----END OPENSSH PRIVATE KEY-----
+spinnaker-api: https://api.spinnaker.ingress.kingslanding.pks.lab.winterfell.live
+webhook-source: pickup-prediction-service-ci
+cf-test-api: https://api.run.pcfone.io
+cf-test-username: username
+cf-test-password: SuperSecretPassword
+cf-test-org: pivot-dpfeffer
+cf-test-space: test
+cf-test-route: dodd-todos-test.apps.pcfone.io
+cf-test-app-name: test-pickup-prediction-service
+cf-prod-api: https://api.run.pcfone.io
+cf-prod-username: username
+cf-prod-password: SuperSecretPassword
+cf-prod-org: pivot-dpfeffer
+cf-prod-space: production
+cf-prod-route: dodd-todos-prod.apps.pcfone.io
+cf-prod-app-name: prod-pickup-prediction-service
+```
+
 ## Run e2e tests
 
 ```bash
