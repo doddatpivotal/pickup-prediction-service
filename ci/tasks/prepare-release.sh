@@ -12,3 +12,6 @@ echo "version-${version}-release" > release-results/release-name.txt
 # Create github release artifact consisting of zipped up code from repo
 rm -rf code-repo/.git
 tar -cvf release-results/code-repo-${version}.tgz code-repo
+
+# Create file with tag name to be used in later put step
+echo "version-${version}-artifactory-deploy" > release-results/tag.txt

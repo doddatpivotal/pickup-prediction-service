@@ -144,12 +144,12 @@ jobs:
         resource: code-repo
         params:
           repository: code-repo
-          tag: results/tag.txt
+          tag: release-results/tag.txt
           only_tag: true
       - put: code-repo-release
         params:
           name: release-results/release-name.txt
-          tag: results/tag.txt
+          tag: release-results/tag.txt
           globs:
             - release-results/code-repo-*.tgz
 
