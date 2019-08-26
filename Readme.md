@@ -36,6 +36,12 @@ REPO_CONTEXT_URL=$REPO_CONTEXT_URL \
     mvn clean deploy
 ```
 
+## Unit test tasks
+
+```bash
+fly -t lab execute -c ci/tasks/unit-test.yml -i code-repo=. -i ci-scripts=.
+```
+
 ## Setup Concourse Pipeline
 
 ```bash
